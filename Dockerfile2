@@ -1,0 +1,7 @@
+FROM ubuntu
+
+RUN apt update -y && apt install git maven openssh-server openjdk-11-jre -y
+
+EXPOSE 22
+
+CMD CMD ["/usr/sbin/sshd", "-D"]
