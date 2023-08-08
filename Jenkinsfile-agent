@@ -1,9 +1,9 @@
-
 pipeline {
 
     agent {
         docker {
             image 'dhananjaypuri/mvn-git-jenkins-agent:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
@@ -13,6 +13,7 @@ pipeline {
 
             steps {
                 echo "Code Checkout Stage"
+                sh 'ls'
             }
         }
         stage('Build'){
