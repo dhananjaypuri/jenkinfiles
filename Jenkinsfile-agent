@@ -1,1 +1,35 @@
 
+pipeline {
+
+    agent {
+        docker {
+            image 'dhananjaypuri/mvn-git-jenkins-agent:latest'
+        }
+    }
+
+    stages {
+
+        stage('Code Checkout'){
+
+            steps {
+                echo "Code Checkout Stage"
+            }
+        }
+        stage('Build'){
+
+            steps {
+                echo "Code Build Stage"
+                sh 'mvn --version'
+            }
+        }
+        stage('Code Push'){
+
+            steps {
+                echo "Code Push Stage"
+                sh 'git --version'
+            }
+        }
+
+    }
+
+}
